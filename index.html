@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gulvaria</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+    body {
+      background: #fefefe;
+      color: #2c2c2c;
+    }
+    .splash-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      width: 100vw;
+      background: linear-gradient(135deg, #262626, #404040);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: #ffe27a;
+      z-index: 9999;
+    }
+    .splash-screen img {
+      width: 120px;
+      height: 120px;
+      margin-bottom: 20px;
+      border-radius: 50%;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+    .splash-screen h1 {
+      font-size: 4rem;
+      margin-bottom: 25px;
+      font-family: 'Playfair Display', serif;
+    }
+    header {
+      background: #1a1a1a;
+      padding: 30px;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+    }
+    header h1 {
+      font-size: 3rem;
+      color: #ffe27a;
+      font-family: 'Playfair Display', serif;
+    }
+    header p {
+      font-size: 1.3rem;
+      color: #e0e0e0;
+      margin-top: 10px;
+    }
+    .content {
+      padding: 60px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: #fff;
+    }
+    .product {
+      max-width: 400px;
+      width: 100%;
+      margin-bottom: 40px;
+      background: #f9f9f9;
+      padding: 25px;
+      border-radius: 20px;
+      box-shadow: 0 6px 24px rgba(0,0,0,0.1);
+    }
+    .product img {
+      width: 100%;
+      border-radius: 15px;
+      margin-bottom: 20px;
+    }
+    .order-button {
+      background-color: #ffe27a;
+      color: #1a1a1a;
+      border: none;
+      padding: 14px 28px;
+      font-size: 1rem;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background 0.3s;
+      text-decoration: none;
+      display: inline-block;
+      text-align: center;
+    }
+    .order-button:hover {
+      background-color: #e6ca5f;
+    }
+    .testimonials, .about, .contact, footer {
+      padding: 60px 30px;
+      text-align: center;
+    }
+    .testimonials h2 {
+      color: #d4af37;
+      margin-bottom: 20px;
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+    }
+    .testimonials .testimonial {
+      background: #f9f9f9;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+      max-width: 500px;
+      margin: 0 auto 20px;
+    }
+    .testimonial p {
+      font-style: italic;
+      margin-bottom: 10px;
+    }
+    .testimonial span {
+      font-weight: 700;
+      color: #1a1a1a;
+    }
+    .about h2, .contact h2 {
+      color: #ffe27a;
+      margin-bottom: 20px;
+      font-family: 'Playfair Display', serif;
+    }
+    .about, .contact {
+      background: #262626;
+      color: #fefefe;
+    }
+    .contact a {
+      color: #ffe27a;
+      font-size: 1.3rem;
+      text-decoration: none;
+    }
+    footer {
+      background: #1a1a1a;
+      color: #e0e0e0;
+    }
+    footer p {
+      font-size: 0.9rem;
+    }
+    @media (max-width: 600px) {
+      .testimonials h2 {
+        font-size: 1.8rem;
+      }
+      .testimonials .testimonial {
+        width: 90%;
+        margin: 0 auto 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="splash-screen" id="splash">
+    <img src="https://i.postimg.cc/FzFN3pZc/Screenshot-2025-0430-144545.jpg" alt="Gulvaria Logo">
+    <h1>Gulvaria</h1>
+  </div>
+  <header>
+    <h1>Gulvaria</h1>
+    <p>Not Just a Perfume, An Aura</p>
+  </header>
+  <div class="content">
+    <div class="product">
+      <img src="https://i.postimg.cc/7h9f0frs/Screenshot-2025-0430-145551.jpg" alt="Gulvaria Perfume">
+      <a href="https://wa.me/919034075510" target="_blank" class="order-button">Order Now</a>
+    </div>
+    <div class="product">
+      <img src="https://i.postimg.cc/yYQF1smF/Screenshot-2025-0501-161418.jpg" alt="New Perfume Image">
+      <a href="https://wa.me/919034075510" target="_blank" class="order-button">Order Now</a>
+    </div>
+    <div class="product">
+      <img src="https://i.postimg.cc/0yBBzdMf/Screenshot-2025-0501-224905.jpg" alt="New Perfume Image">
+      <a href="https://wa.me/919034075510" target="_blank" class="order-button">Order Now</a>
+    </div>
+  </div>
+
+  <section class="testimonials">
+    <h2>What Our Customers Say</h2>
+    <div class="testimonial">
+      <p>"Gulvaria’s Jasmine Whisper is pure magic! I feel so confident every time I wear it."</p>
+      <span>— Ananya Mehta, Mumbai</span>
+    </div>
+    <div class="testimonial">
+      <p>"The packaging alone feels like unwrapping a treasure. And the scent lasts all day!"</p>
+      <span>— Rajiv Sharma, Delhi</span>
+    </div>
+    <div class="testimonial">
+      <p>"I’ve tried many luxury perfumes, but none compare to Gulvaria’s Oud Royale. Simply divine."</p>
+      <span>— Priya Kapoor, Bangalore</span>
+    </div>
+  </section>
+
+  <section class="about">
+    <h2>About Us</h2>
+    <p>Gulvaria isn't just a fragrance brand — it's a lifestyle. Inspired by elegance, crafted with precision, and made for those who want to leave a lasting impression. Our scents are timeless, graceful, and truly unforgettable — because you deserve a perfume that speaks your essence.</p>
+    <div style="max-width: 400px; margin: 60px auto; padding: 30px; border-radius: 20px; background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(12px); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); text-align: center; font-family: 'Georgia', serif; border: 1px solid rgba(255, 255, 255, 0.2);">
+      <h2 style="font-size: 2rem; margin-bottom: 15px; color: #d4af37;">Need Assistance?</h2>
+      <p style="font-size: 1.2rem; color: #ffffffcc; margin-bottom: 10px;">Call us directly</p>
+      <p style="font-size: 1.6rem; font-weight: bold; color: #ffffff;">📞 9034075510</p>
+      <a href="tel:9034075510" style="display: inline-block; margin-top: 20px; padding: 12px 30px; background: linear-gradient(to right, #d4af37, #b28c34); color: #fff; font-size: 1rem; font-weight: bold; border-radius: 50px; text-decoration: none; transition: transform 0.3s ease;">📲 Call Now</a>
+    </div>
+  </section>
+
+  <section class="contact">
+    <h2>Contact Us</h2>
+    <p>Have questions? Reach out anytime:</p>
+    <a href="mailto:gulvaria.in@gmail.com">gulvaria.in@gmail.com</a>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Gulvaria. All rights reserved.</p>
+  </footer>
+
+<script>
+  window.onload = () => {
+    setTimeout(() => {
+      document.getElementById('splash').style.display = 'none';
+    }, 2500);
+  };
+</script>
+</body>
+</html>
