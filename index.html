@@ -3,8 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gulvaria</title>
+  <meta name="description" content="Gulvaria - Luxury Perfumes that define elegance and sophistication. Discover our premium collection of fragrances." />
+  <meta name="keywords" content="Gulvaria, luxury perfumes, premium fragrances, designer perfumes, Indian perfumes" />
+  <title>Gulvaria - Luxury Perfumes</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <style>
     * {
       margin: 0;
@@ -13,8 +16,24 @@
       font-family: 'Poppins', sans-serif;
     }
     body {
-      background: #fefefe;
-      color: #2c2c2c;
+      background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 100%);
+      color: #fefefe;
+      background-image: 
+        linear-gradient(135deg, rgba(26, 26, 26, 0.97) 0%, rgba(44, 44, 44, 0.97) 100%),
+        url('https://www.transparenttextures.com/patterns/diamond-upholstery.png'),
+        url('https://www.transparenttextures.com/patterns/golden-pattern.png');
+      background-blend-mode: overlay;
+      position: relative;
+    }
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at center, rgba(255,226,122,0.1) 0%, transparent 70%);
+      pointer-events: none;
     }
     .splash-screen {
       position: fixed;
@@ -29,6 +48,24 @@
       align-items: center;
       color: #ffe27a;
       z-index: 9999;
+      animation: fadeOut 2.5s forwards;
+    }
+    @keyframes fadeOut {
+      from { opacity: 1; }
+      to { opacity: 0; }
+    }
+    .loading-spinner {
+      width: 50px;
+      height: 50px;
+      border: 5px solid #ffe27a;
+      border-top: 5px solid transparent;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin-bottom: 20px;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
     }
     .splash-screen img {
       width: 120px;
@@ -36,51 +73,80 @@
       margin-bottom: 20px;
       border-radius: 50%;
       box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
     }
     .splash-screen h1 {
       font-size: 4rem;
       margin-bottom: 25px;
       font-family: 'Playfair Display', serif;
+      letter-spacing: 0.2em;
+      text-shadow: 0 2px 10px rgba(255,226,122,0.3);
     }
-    header {
-      background: #1a1a1a;
-      padding: 30px;
+    .brand-header {
+      background: linear-gradient(to right, rgba(26, 26, 26, 0.95), rgba(44, 44, 44, 0.95));
+      padding: 40px 20px;
       text-align: center;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+      border-bottom: 1px solid rgba(255,226,122,0.1);
+      margin-bottom: 30px;
     }
-    header h1 {
-      font-size: 3rem;
+    .brand-header h1 {
+      font-size: 3.5rem;
       color: #ffe27a;
       font-family: 'Playfair Display', serif;
+      letter-spacing: 0.15em;
+      text-shadow: 0 2px 15px rgba(255,226,122,0.2);
+      margin-bottom: 15px;
     }
-    header p {
-      font-size: 1.3rem;
+    .brand-header p {
+      font-size: 1.4rem;
       color: #e0e0e0;
-      margin-top: 10px;
+      letter-spacing: 0.1em;
+      font-style: italic;
     }
     .content {
-      padding: 60px 20px;
+      padding: 20px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      background: #fff;
     }
     .product {
       max-width: 400px;
       width: 100%;
       margin-bottom: 40px;
-      background: #f9f9f9;
+      background: rgba(255, 255, 255, 0.1);
       padding: 25px;
       border-radius: 20px;
       box-shadow: 0 6px 24px rgba(0,0,0,0.1);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: transform 0.3s, box-shadow 0.3s;
+      animation: slideUp 0.8s ease-out;
+    }
+    @keyframes slideUp {
+      from { transform: translateY(50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    .product:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 12px 36px rgba(255,226,122,0.2);
     }
     .product img {
       width: 100%;
       border-radius: 15px;
       margin-bottom: 20px;
+      transition: transform 0.3s;
+    }
+    .product:hover img {
+      transform: scale(1.05);
     }
     .order-button {
-      background-color: #ffe27a;
+      background: linear-gradient(45deg, #ffe27a, #ffd700);
       color: #1a1a1a;
       border: none;
       padding: 14px 28px;
@@ -88,82 +154,139 @@
       border-radius: 10px;
       cursor: pointer;
       font-weight: 600;
-      transition: background 0.3s;
+      transition: all 0.3s;
       text-decoration: none;
       display: inline-block;
       text-align: center;
+      letter-spacing: 0.05em;
     }
     .order-button:hover {
-      background-color: #e6ca5f;
+      background: linear-gradient(45deg, #ffd700, #ffe27a);
+      transform: scale(1.05);
+      box-shadow: 0 4px 15px rgba(255,226,122,0.4);
     }
-    .testimonials, .about, .contact, footer {
+    .social-section {
+      padding: 40px 20px;
+      text-align: center;
+      background: rgba(255,255,255,0.05);
+      border-top: 1px solid rgba(255,226,122,0.1);
+      border-bottom: 1px solid rgba(255,226,122,0.1);
+    }
+    .social-section h2 {
+      color: #ffe27a;
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      letter-spacing: 0.1em;
+    }
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 20px;
+    }
+    .social-icons a {
+      color: #ffe27a;
+      font-size: 24px;
+      transition: all 0.3s;
+    }
+    .social-icons a:hover {
+      transform: scale(1.2);
+      color: #ffd700;
+    }
+    .testimonials, .about, .contact {
       padding: 60px 30px;
       text-align: center;
     }
-    .testimonials h2 {
-      color: #d4af37;
+    .testimonials h2, .about h2, .contact h2 {
+      color: #ffe27a;
       margin-bottom: 20px;
       font-family: 'Playfair Display', serif;
       font-size: 2.5rem;
+      letter-spacing: 0.1em;
     }
     .testimonials .testimonial {
-      background: #f9f9f9;
+      background: rgba(255, 255, 255, 0.1);
       padding: 20px;
       border-radius: 15px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
       margin-bottom: 20px;
       max-width: 500px;
       margin: 0 auto 20px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: transform 0.3s;
+      animation: fadeIn 0.8s ease-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    .testimonial:hover {
+      transform: translateY(-5px);
     }
     .testimonial p {
       font-style: italic;
       margin-bottom: 10px;
+      line-height: 1.6;
     }
     .testimonial span {
       font-weight: 700;
-      color: #1a1a1a;
-    }
-    .about h2, .contact h2 {
       color: #ffe27a;
-      margin-bottom: 20px;
-      font-family: 'Playfair Display', serif;
+      letter-spacing: 0.05em;
     }
     .about, .contact {
-      background: #262626;
+      background: rgba(38, 38, 38, 0.8);
       color: #fefefe;
+      border-top: 1px solid rgba(255,226,122,0.1);
+      border-bottom: 1px solid rgba(255,226,122,0.1);
     }
     .contact a {
       color: #ffe27a;
       font-size: 1.3rem;
       text-decoration: none;
+      transition: color 0.3s;
+    }
+    .contact a:hover {
+      color: #ffd700;
     }
     footer {
-      background: #1a1a1a;
-      color: #e0e0e0;
+      background: rgba(26, 26, 26, 0.95);
+      color: #ffe27a;
+      text-align: center;
+      padding: 20px 0;
+      font-size: 1rem;
+      letter-spacing: 0.05em;
+      border-top: 1px solid rgba(255,226,122,0.1);
     }
-    footer p {
-      font-size: 0.9rem;
-    }
-    @media (max-width: 600px) {
-      .testimonials h2 {
-        font-size: 1.8rem;
+    @media (max-width: 768px) {
+      .splash-screen h1 {
+        font-size: 2.5rem;
       }
-      .testimonials .testimonial {
-        width: 90%;
-        margin: 0 auto 20px;
+      .brand-header h1 {
+        font-size: 2.5rem;
+      }
+      .brand-header p {
+        font-size: 1.2rem;
+      }
+      .product {
+        max-width: 90%;
       }
     }
   </style>
 </head>
 <body>
   <div class="splash-screen" id="splash">
+    <div class="loading-spinner"></div>
     <img src="https://i.postimg.cc/FzFN3pZc/Screenshot-2025-0430-144545.jpg" alt="Gulvaria Logo">
     <h1>Gulvaria</h1>
   </div>
-  <header>
+
+  <div class="brand-header">
     <h1>Gulvaria</h1>
     <p>Not Just a Perfume, An Aura</p>
-  </header>
+  </div>
+
   <div class="content">
     <div class="product">
       <img src="https://i.postimg.cc/7h9f0frs/Screenshot-2025-0430-145551.jpg" alt="Gulvaria Perfume">
@@ -182,7 +305,7 @@
   <section class="testimonials">
     <h2>What Our Customers Say</h2>
     <div class="testimonial">
-      <p>"Gulvaria’s Jasmine Whisper is pure magic! I feel so confident every time I wear it."</p>
+      <p>"Gulvaria's Jasmine Whisper is pure magic! I feel so confident every time I wear it."</p>
       <span>— Ananya Mehta, Mumbai</span>
     </div>
     <div class="testimonial">
@@ -190,7 +313,7 @@
       <span>— Rajiv Sharma, Delhi</span>
     </div>
     <div class="testimonial">
-      <p>"I’ve tried many luxury perfumes, but none compare to Gulvaria’s Oud Royale. Simply divine."</p>
+      <p>"I've tried many luxury perfumes, but none compare to Gulvaria's Oud Royale. Simply divine."</p>
       <span>— Priya Kapoor, Bangalore</span>
     </div>
   </section>
@@ -206,6 +329,13 @@
     </div>
   </section>
 
+  <section class="social-section">
+    <h2>Follow Us</h2>
+    <div class="social-icons">
+      <a href="https://instagram.com/gulvaria.in" target="_blank"><i class="fab fa-instagram"></i></a>
+    </div>
+  </section>
+
   <section class="contact">
     <h2>Contact Us</h2>
     <p>Have questions? Reach out anytime:</p>
@@ -213,7 +343,7 @@
   </section>
 
   <footer>
-    <p>&copy; 2025 Gulvaria. All rights reserved.</p>
+    <p>2025 All Rights Reserved</p>
   </footer>
 
 <script>
